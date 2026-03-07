@@ -337,17 +337,18 @@ TextField("Code", text: $code)
 
 ### Clipboard
 
-**Use `PasteButton` instead of `UIPasteboard` for reading clipboard content.**
+**Prefer `PasteButton` for user-initiated paste UI to avoid paste prompts; use `UIPasteboard` when you need non-button or non-`Transferable` clipboard access.**
 
-`PasteButton` is a system-provided button that reads clipboard content via `Transferable`. It handles permissions automatically and avoids the paste permission prompt that `UIPasteboard` triggers.
+`PasteButton` is a system-provided SwiftUI control that reads clipboard content using `Transferable` payloads. It requires a visible, user-tappable button, handles permissions automatically for that interaction, and avoids the paste permission prompt that direct `UIPasteboard` access can trigger.
 
 ```swift
-// Modern
+// Preferred for user-initiated paste in SwiftUI
 PasteButton(payloadType: String.self) { strings in
     pastedText = strings.first ?? ""
 }
 
-// Avoid — triggers paste permission prompt, not SwiftUI-native
+// Use when you need programmatic / non-button access or non-`Transferable` payloads.
+// Be aware: this can trigger the system paste permission prompt.
 let text = UIPasteboard.general.string
 ```
 
