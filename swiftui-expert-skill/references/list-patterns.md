@@ -365,7 +365,7 @@ Table(people) { /* columns */ }
 | **iPadOS (compact)** | Only the first column shown; headers hidden |
 | **iPhone (all sizes)** | Only the first column shown; headers hidden; list-like appearance |
 
-> **Best Practice:** Always handle the compact size class by showing combined info in the first column. This provides a seamless transition when the size class changes (e.g., entering/exiting Slide Over on iPad).
+> **Best Practice:** Prefer handling the compact size class by showing combined info in the first column. This provides a seamless transition when the size class changes (e.g., entering/exiting Slide Over on iPad).
 
 ## Summary Checklist
 
